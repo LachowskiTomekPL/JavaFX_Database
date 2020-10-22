@@ -11,7 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        AnchorPane root = FXMLLoader.load(getClass().getResource("/fxml/user.fxml"));
+        AnchorPane root = FXMLLoader.load(getClass().getResource("/fxml/menu.fxml"));
         primaryStage.setTitle("Menu");
         primaryStage.setScene(new Scene(root, 1090, 800));
         primaryStage.setResizable(true);
