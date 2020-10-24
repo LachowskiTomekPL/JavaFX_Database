@@ -7,9 +7,20 @@ import java.sql.Statement;
 
 public class DatabaseConnector {
 
-    private final String URL = "jdbc:mysql://localhost:3306/javafx_project?autoReconnect=true&useSSL=false&serverTimezone=UTC";
-    private final String USER = "root";
-    private final String PASSWORD = "mysql";
+    private static final String URL = "jdbc:mysql://localhost:3306/javafx_project?autoReconnect=true&useSSL=false&serverTimezone=UTC";
+    private static final String USER = "root";
+    private static final String PASSWORD = "mysql";
+
+    public static Connection connect() {
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            if (connection == null) throw new SQLException();
+            return connection;
+        } catch (SQLException e) {
+            System.out.println("CONNECTION ERROR WITH DATA BASE !!!!!!!!!!!!! CHECK URL | USERNAME | PASSWORD !!!!!!!!!");
+            return null;
+        }
+    }
 
     private static final String SQL_USER = "CREATE TABLE USER"
             + "("
